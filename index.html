@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ажаагаа дурсахуй</title>
+  <link rel="stylesheet" type="text/css" href="asset/css/layout.css">
+  <link rel="stylesheet" type="text/css" href="asset/css/skin.css">
+  <link rel="stylesheet" type="text/css" href="asset/css/responsive.css">
+  <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> -->
+
+  <!-- Add jQuery library -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <!-- Add mousewheel plugin (this is optional) -->
+  <script type="text/javascript" src="asset/script/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+  <!-- Add fancyBox -->
+  <link rel="stylesheet" href="asset/script/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+  <script type="text/javascript" src="asset/script/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  <!-- Optionally add helpers - button, thumbnail and/or media -->
+  <link rel="stylesheet" href="asset/script/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+  <script type="text/javascript" src="asset/script/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+  <script type="text/javascript" src="asset/script/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+  <link rel="stylesheet" href="asset/script/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+  <script type="text/javascript" src="asset/script/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+  
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+  </script>
+  <![endif]-->
+
+  <script type="text/javascript">
+
+    $(function(){
+
+      setHeaderFooter();
+
+    // get data and bind to #photogrid
+      processData();
+
+      // bind event handlers
+      initializeEvents();
+
+      //animation on list
+      // var swapper = setInterval(switchRandomly, 3000);
+
+    });
+
+    function setHeaderFooter(){
+      var headerTitle = "Лочигийн Дамбажамц";
+      var headerDate = "1916 - 2006";
+      var headerText = "Харцнаас нь эрдмийн гэрэл цацарсан<br/>Сэтгэлээс нь энэрлийн ухаан гэрэлтсэн<br/>Хорвоод хосгүй ачит хүн таны<br/>Сүүн мөртэй номын харгуй тань<br/>Үргэлж гэрэлтэж байг...";
+      var footerText = "Хайрт ажаагийнхаа 100 жилийн ойд зориулав. <br/>2016 он.";
+      var copyrightText = "&copy;Saruulhan V1.0";
+
+      var part1Text = "Эхний үе - Хувьсгалын он жилүүд";
+      var part2Text = "Дараах үе - Ардчилсан, шашин шүтэх эрхт он жилүүд";
+      var part3Text = "Буурал хорвоогийн жамыг<br/> Буцааж охин нь чадахгүй ч<br/> Буянт таныхаа ачийг<br/> Мартаж яахан чадах билээ...<br/>";
+      var summaryText = "Цаг хугацаа улиран одож 10 хавар үдсэн ч таныхаа хайр шингэсэн харц, амьдрал таниулах ухаарал хайрласан үгс, болох болохгүйг учирлан хэлэх сургааль, үнэнч шударгаар хөдөлмөрлөж амьдрах, аливаа юманд үнэн сэтгэлээс хандах, бусдад гэм хоргүй, зөв сэтгэлтэй сайн явах зарчим, өөрийн дуртай зүйлээ хийж үргэлж завгүй, залуугаараа амьдрах үлгэр дууриал тань өдөр бүр хамт байдагаа...";
+
+      $("#headertitle").html(headerTitle);
+      $("#headerdate").html(headerDate);
+      $("#headertext").html(headerText);
+      $("#part1Text").html(part1Text);
+      $("#part2Text").html(part2Text);
+      $("#part3Text").html(part3Text);
+      $("#summaryText").html(summaryText);
+      $("#footertext").html(footerText);
+      $("#copyrightText span").html(copyrightText);
+    }
+
+     function processData(){
+
+      var gridData  = [
+        {"id":"1","fileName":"ajaa01.jpg","title":"Идэр залуу дарга байх үе"},
+        {"id":"2","fileName":"ajaa02.jpg","title":"Нөхрийн хамт"},
+        {"id":"3","fileName":"ajaa03.jpg","title":"МАХН-н 12-р Их Хурлын Төлөөлөгчид 1945 оны 11-р сарын 19"},
+        {"id":"4","fileName":"ajaa04.jpg","title":"Хань Д.Долгорсүрэн, бусад нөхдийн хамт"},
+        {"id":"5","fileName":"ajaa05.jpg","title":"Намын зүтгэлтэн байх үе"},
+        {"id":"6","fileName":"ajaa06.jpg","title":"Хань Д.Долгорсүрэн, түүний үеэл дүү н.Сосорын хамт"},
+        {"id":"7","fileName":"ajaa07.jpg","title":"Хань Д.Долгорсүрэн, хүү Д.Өлзийбаяр нартай 1956-1957"},
+        {"id":"8","fileName":"ajaa08.jpg","title":"Шинэ Яавандаа хүүгээ сундлаад..."},
+        {"id":"9","fileName":"ajaa09.jpg","title":"Гэр бүлийн хамт"},
+        {"id":"10","fileName":"ajaa10.jpg","title":"Эмээ залуудаа... Дүү Д.Сэрээтэрийн хамт"},
+        {"id":"11","fileName":"ajaa11.jpg","title":"Гэр бүлийн зураг"},
+        {"id":"12","fileName":"ajaa12.jpg","title":"Хүү Д.Өлзийбаяр, охин Д,Оюунчимэгийн хамт"},
+        {"id":"13","fileName":"ajaa13.jpg","title":"Гэр бүлийн хамт"},
+        {"id":"14","fileName":"ajaa14.jpg","title":"Дарга Дамжуунц..."},
+        {"id":"15","fileName":"ajaa15.jpg","title":"Хүүгээ цэрэгт байхад..."},
+        {"id":"16","fileName":"ajaa16.jpg","title":"Охиноо ОХУ-д сургуульд үдэхийн өмнө"},
+        {"id":"17","fileName":"ajaa17.jpg","title":"Намын хороонд хамт ажиллаж байсан н.Жасрай, н.Намжилцэрэнгийн хамт"},
+        {"id":"18","fileName":"ajaa18.jpg","title":"Тухайн үеийн мода ... малгай"},
+        {"id":"19","fileName":"ajaa19.jpg","title":"Хувьсгалчидын өдөр 1979 оны 6-р сарын 25"},
+        {"id":"20","fileName":"ajaa20.jpg","title":"МАХН-н 60 жил 1981 оны 3-р сарын 1"},
+        {"id":"21","fileName":"ajaa21.jpg","title":"Д.Сүхбаатарын мэндэлсний 90 жилийн ойн өдөр Намын хорооны дарга нар, ахмад зүтгэлтэн, өндөр настангуудтай 1983 он"}
+      ];
+
+      var gridData1  = [
+        {"id":"0","fileName":"sahius.jpg","title":"Дундговь аймгийн ДАШГЭНПЭЛЛИН хийдийн гол шүтээн ГОМБО сахиус"},
+        {"id":"1","fileName":"ajaa22.jpg","title":"Хэсэг нөхдийн хамт Дундговь аймгийн ДАШГЭНПЭЛЛИН хийдийг байгуулж байнгын хуралтай болгов."},
+        {"id":"2","fileName":"ajaa23.jpg","title":"Зээ дүү Доржийн хамт"},
+        {"id":"3","fileName":"ajaa24.jpg","title":"Шавь Б.Дагва, В.Агваан, Б.Чойжи-Одсэр нарийн хамт"},
+        {"id":"4","fileName":"ajaa25.jpg","title":"Гэртээ уншлагаа уншиж байна"},
+        {"id":"5","fileName":"ajaa26.jpg","title":"Гэр бүлийн хамт"},
+        {"id":"6","fileName":"ajaa27.jpg","title":"Зээ охин Н.Хундагын хамт"},
+        {"id":"7","fileName":"ajaa28.jpg","title":"УИХ Ж.Наранцацралттай уулзах үеэр"},
+        {"id":"8","fileName":"ajaa29.jpg","title":"УИХ Ж.Наранцацралттай хөөрөглөх мөч"},
+        {"id":"9","fileName":"ajaa30.jpg","title":"Азийн Буддистуудын хурал Гандантэгчилэн хийд"},
+        {"id":"10","fileName":"ajaa31.jpg","title":"Бакула Ренбүчи багштай уулзах үеэр"},
+        {"id":"11","fileName":"ajaa32.jpg","title":"Хурлийн үеэр хамба лам нар, дагалдан явсан шавь Ө.Төгөлдөр нарын хамт"},
+        {"id":"12","fileName":"ajaa33.jpg","title":"Шавь Б.Дагвын хамт"},
+        {"id":"13","fileName":"ajaa34.jpg","title":"Зээ дүү Х.Өвгөнхүү, н.Хуяг нарынд"},
+        {"id":"14","fileName":"ajaa35.jpg","title":"Дүү Ц.Намсрай болон зээ охидын хамт"},
+        {"id":"15","fileName":"ajaa36.jpg","title":"Дүү Ц.Намсрай болон түүний хүү Н.Гансүхийн хамт"},
+        {"id":"16","fileName":"ajaa37.jpg","title":"Эмээ охидын хамт"},
+        {"id":"17","fileName":"ajaa38.jpg","title":"Ахмадуудтай зуслан дээр"},
+        {"id":"18","fileName":"ajaa39.jpg","title":"Ахмадууд, дүү, хүүхдүүдийн хамт"},
+        {"id":"19","fileName":"ajaa40.jpg","title":"Хүргэн, охин, зээгийн хамт"},
+        {"id":"20","fileName":"ajaa41.jpg","title":"ДУНДГОВЬ АЙМГИЙН ДАШГЭНПЭЛЛИН ХИЙДИЙН ХАМБА"},
+        {"id":"21","fileName":"ajaa42.jpg","title":"Шавь Б.Дагва бусад лам нарын хамт хурлын үеэр"},
+        {"id":"22","fileName":"ajaa43.jpg","title":"МУ-н 3 дах Ерөнхийлөгч Н.Энхбаяртай уулзах үеэр"},
+        {"id":"23","fileName":"ajaa44.jpg","title":"Майдар эргэх үеэр"},
+        {"id":"24","fileName":"ajaa45.jpg","title":"Эх болсон 6 зүйл хамаг амьтны тусын тулд, нутгийн зон олны сайн сайхны төлөө залбирч байна"},
+        {"id":"25","fileName":"ajaa46.jpg","title":"Цагаан сараар шавь нар, хүүхдүүдийн хамт"},
+        {"id":"26","fileName":"ajaa47.jpg","title":"Золголтын үеэр хүүтэйгээ"},
+        {"id":"27","fileName":"ajaa48.jpg","title":"Цагаан сараар хүргэн, охин нартай"},
+        {"id":"28","fileName":"ajaa49.jpg","title":"Ач хүү Ө.Цэрэнчунтын хамт"},
+        {"id":"29","fileName":"ajaa50.jpg","title":"Зээ охин Г.Энхсаруулын хамт"},
+        {"id":"30","fileName":"ajaa51.jpg","title":"Дүү Ц.Намсрай, түүний хүү Н.Ганболдн хамт хамт"},
+        {"id":"31","fileName":"ajaa52.jpg","title":"Дундговь аймгийн Луус сум Өлгийн бууц 2005 он"},
+        {"id":"32","fileName":"ajaa53.jpg","title":"Хань Д.Долгорсүрэнгийн ах Д.Дашдондогийн хүүхдүүдийн хамт"},
+        {"id":"33","fileName":"ajaa54.jpg","title":"Дундговь аймгийн Өлзийт сум лам н.Дашдаваагийн хамт (Миний хамгийн дуртай зураг Яг л ингэж инээж намайг хардаг байсан...)"},
+        {"id":"34","fileName":"ajaa55.jpg","title":"Дундговь аймгийн Өлзийт сум"},
+        {"id":"35","fileName":"ajaa56.jpg","title":"Дундговь аймгийн Өлзийт сум Цагаан Суварга"},
+        {"id":"36","fileName":"ajaa57.jpg","title":"Хайрт ач хүү Чунтын хамт"},
+        {"id":"37","fileName":"ajaa58.jpg","title":"Хайрт зээ охин Саруултайгаа (Хамбын бөөрний охин)"},
+        {"id":"38","fileName":"ajaa59.jpg","title":"Их ууртай байсан учрыг мэдсэн Саруул орхимжийг нь эвхэж өгөөгүй, өөрөө эвхэж байж"},
+        {"id":"39","fileName":"ajaa60.jpg","title":"УБ хот хийдэд хурах үеэр"},
+        {"id":"40","fileName":"ajaa61.jpg","title":"Аравнайлсан Алтан Суваргыг нь шавь н.Доёд бурханч лам н.Пүрэвбатын урлангаас авч нутагт нь залах гэж байна"}
+      ];
+
+
+      var smallImgPath = "asset/img/small/";
+      var bigImgPath = "asset/img/src/";
+
+      $.each(gridData, function(idx, obj) {
+        $('<a class="fancybox" rel="part1" href="'+bigImgPath + obj.fileName+'" title="'+obj.title+'"><li><img src="' + smallImgPath + obj.fileName + '" alt="'+obj.id+'"></li></a>').appendTo('#photogrid'); 
+      });
+
+       $.each(gridData1, function(idx, obj) {
+        $('<a class="fancybox" rel="part2" href="'+bigImgPath + obj.fileName+'" title="'+obj.title+'"><li><img src="' + smallImgPath + obj.fileName + '" alt="'+obj.id+'"></li></a>').appendTo('#photogrid1'); 
+      });
+
+     }
+
+     function initializeEvents(){
+
+      //initializing image player
+      $(".fancybox").fancybox({
+        openEffect: 'elastic',
+        closeEffect: 'elastic',
+        showNavArrows : true,
+        closeBtn: false,
+        helpers: { 
+          title: { type : 'inside' },
+          buttons: {}
+        }
+      });
+
+      //initializing audio
+      document.querySelector('#audio').addEventListener('play', setLowerVolume);
+
+     }
+
+     function setLowerVolume() { 
+        document.getElementById("audio").volume /= 3;
+    }
+
+     function switchRandomly(){
+      var lists = $("ul#photogrid li");
+      var total = lists.length - 1;
+      var r1 = Math.floor((Math.random() * total) + 1);
+      var r2 = Math.floor((Math.random() * total) + 1);
+      swapItemsContent(lists[r1], lists[r2]);
+     }
+
+     function swapItemsContent(item1, item2){
+      var innerHtml1 = $(item1).html();
+      var innerHtml2 = $(item2).html();
+      $(item1).fadeTo(400, 0.5);
+      $(item2).fadeTo(400, 0.5);
+      $(item1).html(innerHtml2);
+      $(item1).fadeTo(1000, 1.0);
+      $(item2).html(innerHtml1);
+      $(item2).fadeTo(1000, 1.0);
+     }
+
+     function flipGridItem(){
+      var lists = $("ul#photogrid li");
+      var total = lists.length - 1;
+      var r1 = Math.floor((Math.random() * total) + 1);
+      var r2 = Math.floor((Math.random() * total) + 1);
+      $(lists[r1]).toggleClass();
+      $(lists[r2]).toggleClass();
+     }
+
+  </script>
+</head>
+
+  <body>
+
+    <header class="effect7">
+        <h1 id="headertitle"></h1>
+        <h3 id="headerdate"></h3>
+        <p id="headertext"></p>
+    </header>
+
+    <main>
+
+      <section class="effect8">
+        <h2 id="part1Text"></h2>
+        <ul id="photogrid" class="rig">
+        </ul>
+      </section>
+
+      <section class="effect8">
+         <h2 id="part2Text"></h2>
+        <ul id="photogrid1" class="rig">
+        </ul>
+      </section>
+
+      <summary class="effect7, effect8">
+        <h4 id="part3Text"></h4>
+          <p id="summaryText"></p>
+      </summary>
+
+    </main>
+
+    <footer>
+      <p id="footertext"></p>
+       <audio id="audio" controls>
+        <source src="asset/mp3/gegeen.mp3" type="audio/mpeg" class="audio-player">
+        Your browser does not support the audio element.
+      </audio>
+      <p id="copyrightText"><span></span></p>
+    </footer>
+
+  </body>
+
+
+</html>
