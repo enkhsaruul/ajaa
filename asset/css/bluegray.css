@@ -63,7 +63,7 @@ footer{
 
 h1, h3{
     margin-top:15px;
-    line-height: 8px; 
+    /*line-height: 8px;*/ 
 }
 
 h2 {
