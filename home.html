@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ажаагаа дурсахуй</title>
   <link rel="stylesheet" type="text/css" href="asset/css/layout.css">
   <link rel="stylesheet" type="text/css" href="asset/css/skin.css">
@@ -178,34 +179,6 @@
      function setLowerVolume() { 
         document.getElementById("audio").volume /= 3;
     }
-
-     function switchRandomly(){
-      var lists = $("ul#photogrid li");
-      var total = lists.length - 1;
-      var r1 = Math.floor((Math.random() * total) + 1);
-      var r2 = Math.floor((Math.random() * total) + 1);
-      swapItemsContent(lists[r1], lists[r2]);
-     }
-
-     function swapItemsContent(item1, item2){
-      var innerHtml1 = $(item1).html();
-      var innerHtml2 = $(item2).html();
-      $(item1).fadeTo(400, 0.5);
-      $(item2).fadeTo(400, 0.5);
-      $(item1).html(innerHtml2);
-      $(item1).fadeTo(1000, 1.0);
-      $(item2).html(innerHtml1);
-      $(item2).fadeTo(1000, 1.0);
-     }
-
-     function flipGridItem(){
-      var lists = $("ul#photogrid li");
-      var total = lists.length - 1;
-      var r1 = Math.floor((Math.random() * total) + 1);
-      var r2 = Math.floor((Math.random() * total) + 1);
-      $(lists[r1]).toggleClass();
-      $(lists[r2]).toggleClass();
-     }
 
   </script>
 </head>
