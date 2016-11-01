@@ -6,22 +6,20 @@ header{
     position:absolute; 
     left:0px; 
     top:0px; 
-    padding: 15px 0;
-    width:110%; 
-    height:200px;
+    width:100%; 
 }
 
 main {
     position:absolute;
     top:200px;
-    margin: 15px 10px;
-    padding: 15px 0;
+    /*margin: 15px 10px;
+    padding: 15px 0;*/
     padding-bottom: 160px;
 }
 
 section, summary {
-    margin: 15px 0;
-    padding: 10px 0;
+   /* margin: 15px 0;
+    padding: 10px 0;*/
 }
 
 footer{
@@ -39,9 +37,9 @@ footer{
 }
 
 footer audio{
-    right:10px;
+    /*right:10px;
     width: 22%;
-    height:20%;
+    height:20%;*/
 }
 
 footer span{
