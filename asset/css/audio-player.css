@@ -1,3 +1,6 @@
+/*==================================================
+ * Audio player
+ * ===============================================*/
 .audio-player, .audio-player div, .audio-player h2, .audio-player a, .audio-player span, .audio-player button {
   margin: 0;
   padding: 0;
@@ -10,12 +13,12 @@ div.audio-player {
   width: 450px;
   height: 70px;
   margin: 0 auto;
-  background: #4c4e5a;
-  background: -webkit-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
+  background: black;
+  /*background: -webkit-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
   background: -moz-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
   background: -o-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
   background: -ms-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
-  background: linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
+  background: linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);*/
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
