@@ -15,8 +15,8 @@ header{
 }
 
 header, footer{
-    background:#b52f03; /*rgb(153, 31, 0); /*rgb(255, 153, 51);*/
-    border-color:#b52f03; /*rgb(153, 31, 0); /*rgb(255, 153, 51);*/
+    background:#ef5a1f; /*rgb(153, 31, 0); /*rgb(255, 153, 51);*/
+    border-color:#ef5a1f; /*rgb(153, 31, 0); /*rgb(255, 153, 51);*/
     color:#fff;
     text-align: center;
 }
